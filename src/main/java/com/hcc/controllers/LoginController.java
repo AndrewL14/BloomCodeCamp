@@ -23,6 +23,13 @@ public class LoginController {
     @Autowired
     private JWtUtils jwtUtils;
 
+    /**
+     *  Checks if the users credentials are valid or not. if valid sets' header to authorized
+     *  sends the JWT and returns the username else returns an unauthorized status.
+     * @param authCredentialRequestDto The user's username/password.
+     * @return A new response entity containing either a header, JWT and username or
+     * A status unauthorized.
+     */
     @PostMapping(value = "/login", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<?> login(@RequestBody AuthCredentialRequest authCredentialRequestDto) {
 
