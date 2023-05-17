@@ -11,13 +11,19 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 
-// uncomment this class once you have created all of the needed parts
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
      UserRepository userRepo;
 
+    /**
+     *  Fetches a User with a given username if the user is not found throws
+     *  A UsernameNotFoundException.
+     * @param username the username identifying the user whose data is required.
+     * @return A UserDetails with a valid user
+     * @throws UsernameNotFoundException If user was not found.
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> userOpt = userRepo.findByUsername(username);
