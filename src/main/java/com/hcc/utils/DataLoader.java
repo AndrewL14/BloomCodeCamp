@@ -26,6 +26,10 @@ public class DataLoader implements CommandLineRunner {
         loadUserData();
     }
 
+    /**
+     * Creates a new User and puts the user inside the DB if there are no users already in
+     * the DB. (these methods is mainly used for testing and debugging purposes)
+     */
     private void loadUserData() {
         if (userRepository.count() == 0) {
             PasswordEncoder encoder = new BCryptPasswordEncoder();
