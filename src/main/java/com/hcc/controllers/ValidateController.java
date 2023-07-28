@@ -23,7 +23,7 @@ public class ValidateController {
      * @param user  A User to see if the valid JWT matches the user.
      * @return A response entity containing a boolean and status.
      */
-    @GetMapping(value = "/api/aut/validate", consumes = {"application/json"}, produces = {"application/json"})
+    @GetMapping(value = "/api/auth/validate", consumes = {"application/json"}, produces = {"application/json"})
     ResponseEntity<?> validateToken(@RequestParam String token, @AuthenticationPrincipal User user) {
         boolean valid = utils.validateToken(token, user);
         return new ResponseEntity<>(valid, HttpStatus.OK);
